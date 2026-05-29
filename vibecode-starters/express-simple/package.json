@@ -1,0 +1,13 @@
+{
+  "name": "express-simple",
+  "version": "1.0.0",
+  "description": "Minimal express server starter",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

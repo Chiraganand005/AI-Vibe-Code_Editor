@@ -1,0 +1,331 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+  <defs>
+    <!-- Background Aura Gradients -->
+    <radialGradient id="bg-aura-pink" cx="20%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#FF2D55" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#FF2D55" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bg-aura-blue" cx="80%" cy="70%" r="60%">
+      <stop offset="0%" stop-color="#007AFF" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#007AFF" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bg-aura-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#AF52DE" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#AF52DE" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- UI/Glassmorphism Gradients -->
+    <linearGradient id="window-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#007AFF" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="window-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#09090B" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="widget-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stroke-opacity="0.2" />
+      <stop offset="100%" stop-color="#FFFFFF" stroke-opacity="0.02" />
+    </linearGradient>
+    
+    <!-- Neon Accent Gradients -->
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF2D55" />
+      <stop offset="50%" stop-color="#AF52DE" />
+      <stop offset="100%" stop-color="#007AFF" />
+    </linearGradient>
+    <linearGradient id="cyan-glow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00C7BE" />
+      <stop offset="100%" stop-color="#007AFF" />
+    </linearGradient>
+
+    <!-- Syntax Highlighting Gradients -->
+    <linearGradient id="syntax-pink" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF2D55"/><stop offset="100%" stop-color="#FF375F"/></linearGradient>
+    <linearGradient id="syntax-purple" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#BF5AF2"/><stop offset="100%" stop-color="#D07CFF"/></linearGradient>
+    <linearGradient id="syntax-blue" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0A84FF"/><stop offset="100%" stop-color="#64D2FF"/></linearGradient>
+    <linearGradient id="syntax-yellow" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFD60A"/><stop offset="100%" stop-color="#FFCC00"/></linearGradient>
+    <linearGradient id="syntax-green" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#30D158"/><stop offset="100%" stop-color="#34C759"/></linearGradient>
+
+    <!-- Cross-Browser SVG 1.1 Drop Shadows / Glows -->
+    <filter id="shadow-main" x="-20%" y="-20%" width="140%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="24" />
+      <feOffset dx="0" dy="20" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.55"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="shadow-widget" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" />
+      <feOffset dx="0" dy="10" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.4"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="neon-glow-filter" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ambient Light Orbs -->
+  <rect width="800" height="600" fill="#030303" />
+  <circle cx="150" cy="180" r="300" fill="url(#bg-aura-pink)" />
+  <circle cx="680" cy="450" r="300" fill="url(#bg-aura-blue)" />
+  <circle cx="400" cy="300" r="250" fill="url(#bg-aura-purple)" />
+
+  <!-- Background Decorative Grid -->
+  <g opacity="0.05">
+    <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300 M 0,350 L 800,350 M 0,400 L 800,400 M 0,450 L 800,450 M 0,500 L 800,500 M 0,550 L 800,550" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M 50,0 L 50,600 M 100,0 L 100,600 M 150,0 L 150,600 M 200,0 L 200,600 M 250,0 L 250,600 M 300,0 L 300,600 M 350,0 L 350,600 M 400,0 L 400,600 M 450,0 L 450,600 M 500,0 L 500,600 M 550,0 L 550,600 M 600,0 L 600,600 M 650,0 L 650,600 M 700,0 L 700,600 M 750,0 L 750,600" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <!-- ==================== MAIN IDE MOCKUP ==================== -->
+  <g filter="url(#shadow-main)" transform="translate(100, 60)">
+    <!-- Window Body -->
+    <rect width="600" height="420" rx="16" fill="url(#window-bg)" stroke="url(#window-border)" stroke-width="1.5" />
+    
+    <!-- Titlebar -->
+    <path d="M 0,16 A 16,16 0 0,1 16,0 L 584,0 A 16,16 0 0,1 600,16 L 600,40 L 0,40 Z" fill="#141416" stroke="url(#window-border)" stroke-width="1.5" />
+    
+    <!-- Window Controls -->
+    <circle cx="20" cy="20" r="6" fill="#FF5F56" />
+    <circle cx="40" cy="20" r="6" fill="#FFBD2E" />
+    <circle cx="60" cy="20" r="6" fill="#27C93F" />
+
+    <!-- Active Tab -->
+    <path d="M 90,40 L 110,12 L 230,12 L 250,40 Z" fill="#18181B" stroke="url(#window-border)" stroke-width="1" />
+    <text x="135" y="27" font-family="Consolas, Monaco, monospace" font-size="11" fill="#E4E4E7" font-weight="600">VibeApp.tsx</text>
+    <!-- TSX Logo in Tab (Cyan) -->
+    <rect x="117" y="19" width="12" height="12" rx="2" fill="#007ACC" />
+    <text x="119" y="28" font-family="system-ui, sans-serif" font-size="8" fill="#FFFFFF" font-weight="900">TS</text>
+
+    <!-- Inactive Tab -->
+    <text x="280" y="26" font-family="Consolas, Monaco, monospace" font-size="11" fill="#71717A">vibe.config.ts</text>
+    
+    <!-- Sidebar -->
+    <rect x="0" y="40" width="48" height="380" fill="#101012" stroke="url(#window-border)" stroke-width="1" />
+    <!-- Sidebar Icons (Sleek Placeholders) -->
+    <rect x="14" y="56" width="20" height="20" rx="4" fill="#1F1F23" />
+    <circle cx="24" cy="66" r="3" fill="#007AFF" />
+    <rect x="14" y="90" width="20" height="20" rx="4" fill="#17171A" />
+    <rect x="14" y="124" width="20" height="20" rx="4" fill="#17171A" />
+    <rect x="14" y="390" width="20" height="20" rx="4" fill="#17171A" />
+
+    <!-- File Explorer Sidebar panel (partial) -->
+    <rect x="48" y="40" width="120" height="380" fill="#141416" stroke="url(#window-border)" stroke-width="1" />
+    <text x="60" y="65" font-family="system-ui, sans-serif" font-size="11" fill="#A1A1AA" font-weight="bold" letter-spacing="0.5">PROJECT</text>
+    
+    <!-- Stylized vector folder/file icons instead of emojis to guarantee browser compatibility -->
+    <!-- components folder -->
+    <path d="M 62,84 L 66,80 L 73,80 L 75,84 L 84,84 L 84,94 L 62,94 Z" fill="#38BDF8" opacity="0.8"/>
+    <text x="89" y="92" font-family="system-ui, sans-serif" font-size="11" fill="#38BDF8">components</text>
+    
+    <!-- modules folder -->
+    <path d="M 62,108 L 66,104 L 73,104 L 75,108 L 84,108 L 84,118 L 62,118 Z" fill="#E2E8F0" opacity="0.8"/>
+    <text x="89" y="116" font-family="system-ui, sans-serif" font-size="11" fill="#E2E8F0">modules</text>
+    
+    <!-- home folder -->
+    <path d="M 76,132 L 80,128 L 87,128 L 89,132 L 98,132 L 98,142 L 76,142 Z" fill="#94A3B8" opacity="0.8"/>
+    <text x="103" y="140" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">home</text>
+    
+    <!-- header.tsx icon (file layout symbol) -->
+    <path d="M 90,154 L 96,154 L 99,157 L 99,165 L 90,165 Z" fill="#F472B6" opacity="0.8"/>
+    <text x="104" y="164" font-family="system-ui, sans-serif" font-size="11" fill="#F472B6">header.tsx</text>
+    
+    <!-- footer.tsx icon -->
+    <path d="M 90,178 L 96,178 L 99,181 L 99,189 L 90,189 Z" fill="#A78BFA" opacity="0.8"/>
+    <text x="104" y="188" font-family="system-ui, sans-serif" font-size="11" fill="#A78BFA">footer.tsx</text>
+    
+    <!-- next.config.ts icon -->
+    <path d="M 62,202 L 68,202 L 71,205 L 71,213 L 62,213 Z" fill="#A1A1AA" opacity="0.8"/>
+    <text x="76" y="212" font-family="system-ui, sans-serif" font-size="11" fill="#A1A1AA">next.config.ts</text>
+    
+    <!-- package.json icon -->
+    <path d="M 62,226 L 68,226 L 71,229 L 71,237 L 62,237 Z" fill="#A1A1AA" opacity="0.8"/>
+    <text x="76" y="236" font-family="system-ui, sans-serif" font-size="11" fill="#A1A1AA">package.json</text>
+
+    <!-- Editor Code Area -->
+    <g transform="translate(180, 50)">
+      <!-- Code Line Numbers -->
+      <g font-family="Consolas, Monaco, monospace" font-size="11" fill="#3F3F46" text-anchor="end">
+        <text x="20" y="25">1</text>
+        <text x="20" y="47">2</text>
+        <text x="20" y="69">3</text>
+        <text x="20" y="91">4</text>
+        <text x="20" y="113">5</text>
+        <text x="20" y="135">6</text>
+        <text x="20" y="157">7</text>
+        <text x="20" y="179">8</text>
+        <text x="20" y="201">9</text>
+        <text x="20" y="223">10</text>
+        <text x="20" y="245">11</text>
+      </g>
+
+      <!-- Mock Code Text with premium highlighting -->
+      <g font-family="Consolas, Monaco, monospace" font-size="12" xml:space="preserve">
+        <!-- Line 1: import { createVibeEditor } from "@vibecode/core"; -->
+        <text x="35" y="25">
+          <tspan fill="url(#syntax-pink)">import</tspan> <tspan fill="#E4E4E7">{</tspan> <tspan fill="url(#syntax-blue)">createVibeEditor</tspan> <tspan fill="#E4E4E7">}</tspan> <tspan fill="url(#syntax-pink)">from</tspan> <tspan fill="url(#syntax-green)">"@vibecode/core"</tspan><tspan fill="#E4E4E7">;</tspan>
+        </text>
+
+        <!-- Line 2: import { useAI } from "@vibecode/ai"; -->
+        <text x="35" y="47">
+          <tspan fill="url(#syntax-pink)">import</tspan> <tspan fill="#E4E4E7">{</tspan> <tspan fill="url(#syntax-blue)">useAI</tspan> <tspan fill="#E4E4E7">}</tspan> <tspan fill="url(#syntax-pink)">from</tspan> <tspan fill="url(#syntax-green)">"@vibecode/ai"</tspan><tspan fill="#E4E4E7">;</tspan>
+        </text>
+
+        <!-- Line 4: export default function VibeCodeApp() { -->
+        <text x="35" y="91">
+          <tspan fill="url(#syntax-pink)">export default function</tspan> <tspan fill="url(#syntax-yellow)">VibeCodeApp</tspan><tspan fill="#E4E4E7">() {</tspan>
+        </text>
+
+        <!-- Line 5:   const { autocomplete } = useAI(); -->
+        <text x="35" y="113">
+          <tspan fill="url(#syntax-pink)">  const</tspan> <tspan fill="#E4E4E7">{</tspan> <tspan fill="url(#syntax-blue)">autocomplete</tspan> <tspan fill="#E4E4E7">}</tspan> <tspan fill="#E4E4E7">=</tspan> <tspan fill="url(#syntax-yellow)">useAI</tspan><tspan fill="#E4E4E7">();</tspan>
+        </text>
+
+        <!-- Line 7:   return ( -->
+        <text x="35" y="157">
+          <tspan fill="url(#syntax-pink)">  return</tspan> <tspan fill="#E4E4E7">(</tspan>
+        </text>
+
+        <!-- Line 8:     <VibeWorkspace -->
+        <text x="35" y="179">
+          <tspan fill="#E4E4E7">    &lt;</tspan><tspan fill="url(#syntax-purple)">VibeWorkspace</tspan>
+        </text>
+
+        <!-- Line 9:       intelligence="max" -->
+        <text x="35" y="201">
+          <tspan fill="url(#syntax-blue)">      intelligence</tspan><tspan fill="#E4E4E7">=</tspan><tspan fill="url(#syntax-green)">"max"</tspan>
+        </text>
+
+        <!-- Line 10:       speed="instant" -->
+        <text x="35" y="223">
+          <tspan fill="url(#syntax-blue)">      speed</tspan><tspan fill="#E4E4E7">=</tspan><tspan fill="url(#syntax-green)">"instant"</tspan>
+        </text>
+        
+        <!-- Line 11:     > -->
+        <text x="35" y="245">
+          <tspan fill="#E4E4E7">    &gt;</tspan>
+        </text>
+      </g>
+
+      <!-- Active Glowing Cursor (uses rect instead of line for wider support in animated formats) -->
+      <rect x="168" y="233" width="2" height="14" fill="#00C7BE" filter="url(#neon-glow-filter)">
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+      </rect>
+
+      <!-- AI Autocomplete Box (Glassmorphic & Floating) -->
+      <g transform="translate(155, 252)" filter="url(#shadow-widget)">
+        <!-- Box Body -->
+        <rect width="230" height="90" rx="8" fill="#1C1C1E" fill-opacity="0.9" stroke="url(#accent-grad)" stroke-width="1.5" />
+        
+        <!-- Sparkle Icon in Suggestion Box -->
+        <path d="M 16,16 L 19,22 L 25,25 L 19,28 L 16,34 L 13,28 L 7,25 L 13,22 Z" fill="url(#accent-grad)" filter="url(#neon-glow-filter)"/>
+        
+        <!-- Title -->
+        <text x="34" y="26" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold">AI Vibe Complete</text>
+        
+        <!-- Suggested Line -->
+        <text x="16" y="54" font-family="Consolas, Monaco, monospace" font-size="11" fill="#00C7BE" xml:space="preserve">  &lt;Editor autoVibe={true} /&gt;</text>
+        
+        <!-- Hotkey Guide -->
+        <rect x="16" y="66" width="65" height="15" rx="3" fill="#2C2C2E" />
+        <text x="21" y="77" font-family="system-ui, sans-serif" font-size="9" fill="#A1A1AA" font-weight="600">Press Tab ⇥</text>
+        
+        <text x="90" y="77" font-family="system-ui, sans-serif" font-size="9" fill="#71717A">to instantly accept suggestion</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== WIDGET 1: PERFORMANCE SPEED GAUGE (Top Right Floating) ==================== -->
+  <g filter="url(#shadow-widget)" transform="translate(560, 110)">
+    <!-- Glassmorphic Container -->
+    <rect width="160" height="100" rx="12" fill="#1C1C1E" fill-opacity="0.85" stroke="url(#widget-border)" stroke-width="1.2" />
+    
+    <!-- Title -->
+    <text x="16" y="24" font-family="system-ui, sans-serif" font-size="10" fill="#A1A1AA" font-weight="bold" letter-spacing="0.5">COMPILATION SPEED</text>
+    
+    <!-- Gauge Graphic -->
+    <path d="M 30,75 A 35,35 0 0,1 110,75" stroke="#2C2C2E" stroke-width="8" stroke-linecap="round" fill="none" />
+    <path d="M 30,75 A 35,35 0 0,1 102,52" stroke="url(#cyan-glow-grad)" stroke-width="8" stroke-linecap="round" fill="none" filter="url(#neon-glow-filter)" />
+    
+    <!-- Stats Text -->
+    <text x="100" y="65" font-family="system-ui, sans-serif" font-size="20" fill="#FFFFFF" font-weight="900" text-anchor="middle">12ms</text>
+    <text x="100" y="78" font-family="system-ui, sans-serif" font-size="9" fill="#00C7BE" font-weight="bold" text-anchor="middle">▲ INSTANT</text>
+  </g>
+
+  <!-- ==================== WIDGET 2: TERMINAL LOGS (Bottom Left Floating) ==================== -->
+  <g filter="url(#shadow-widget)" transform="translate(60, 380)">
+    <!-- Glassmorphic Container -->
+    <rect width="210" height="110" rx="12" fill="#0E0E10" fill-opacity="0.9" stroke="url(#widget-border)" stroke-width="1.2" />
+    
+    <!-- Top Bar -->
+    <rect width="210" height="24" rx="12" fill="#141416" />
+    <text x="16" y="16" font-family="Consolas, Monaco, monospace" font-size="9" fill="#71717A">terminal — node</text>
+    
+    <!-- Green Success Dot -->
+    <circle cx="194" cy="12" r="4" fill="#30D158" filter="url(#neon-glow-filter)" />
+
+    <!-- Terminal Output -->
+    <g font-family="Consolas, Monaco, monospace" font-size="10">
+      <text x="16" y="44" fill="#30D158">✔ vibe-client compiled successfully</text>
+      <text x="16" y="62" fill="#A1A1AA">└ HMR loaded in <tspan fill="#FFD60A">4.2ms</tspan></text>
+      <text x="16" y="80" fill="#007AFF">ℹ listening on http://localhost:3000</text>
+      <text x="16" y="98" fill="#FF2D55">$ <tspan fill="#FFFFFF">vibecode dev --intelligent</tspan></text>
+    </g>
+  </g>
+
+  <!-- ==================== FLOATING DESIGN & GRAPHIC ELEMENTS ==================== -->
+  
+  <!-- Floating abstract code symbol 1 (Braces) -->
+  <g transform="translate(680, 270)" filter="url(#neon-glow-filter)" opacity="0.7">
+    <!-- Solid color fill to fix text gradient rendering in SVG filters -->
+    <text font-family="system-ui, sans-serif" font-size="44" fill="#AF52DE" font-weight="900">{ }</text>
+    <animateTransform attributeName="transform" type="translate" values="680 270; 680 262; 680 270" dur="4s" repeatCount="indefinite" />
+  </g>
+
+  <!-- Floating abstract code symbol 2 (Brackets) -->
+  <g transform="translate(70, 160)" filter="url(#neon-glow-filter)" opacity="0.6">
+    <text font-family="system-ui, sans-serif" font-size="36" fill="#007AFF" font-weight="900">&lt; /&gt;</text>
+    <animateTransform attributeName="transform" type="translate" values="70 160; 70 168; 70 160" dur="5s" repeatCount="indefinite" />
+  </g>
+
+  <!-- Sparkles & Particles -->
+  <!-- Sparkle 1 -->
+  <path d="M 520,380 L 523,386 L 529,389 L 523,392 L 520,398 L 517,392 L 511,389 L 517,386 Z" fill="#FFFFFF" filter="url(#neon-glow-filter)">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" />
+  </path>
+  
+  <!-- Sparkle 2 -->
+  <path d="M 280,100 L 282,104 L 286,106 L 282,108 L 280,112 L 278,108 L 274,106 L 278,104 Z" fill="#00C7BE" filter="url(#neon-glow-filter)">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Sparkle 3 -->
+  <path d="M 680,240 L 681,243 L 685,245 L 681,247 L 680,250 L 679,247 L 675,245 L 679,243 Z" fill="#FF2D55" filter="url(#neon-glow-filter)">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Connection nodes/dots representing structural network -->
+  <g stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.2">
+    <line x1="550" y1="260" x2="600" y2="290" />
+    <line x1="600" y1="290" x2="570" y2="340" />
+  </g>
+  <circle cx="550" cy="260" r="3.5" fill="#AF52DE" filter="url(#neon-glow-filter)" />
+  <circle cx="600" cy="290" r="3.5" fill="#007AFF" filter="url(#neon-glow-filter)" />
+  <circle cx="570" cy="340" r="3.5" fill="#FF2D55" filter="url(#neon-glow-filter)" />
+</svg>

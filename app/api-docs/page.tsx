@@ -2,15 +2,8 @@
 
 import React, { useState } from "react";
 import { 
-  Server, 
   Terminal, 
-  ExternalLink, 
-  ArrowLeft,
-  Settings,
-  Sparkles,
-  RefreshCw,
-  Eye,
-  Play
+  ArrowLeft
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

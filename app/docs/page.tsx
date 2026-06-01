@@ -7,8 +7,6 @@ import {
   Terminal, 
   Code, 
   Server, 
-  Zap, 
-  ChevronRight, 
   Flame, 
   Layers,
   ArrowLeft
@@ -20,7 +18,7 @@ interface Tutorial {
   id: string;
   name: string;
   category: "frontend" | "backend" | "fullstack";
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   description: string;
   setupCommand: string;

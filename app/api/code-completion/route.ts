@@ -23,9 +23,18 @@ interface CodeContext {
 }
 
 export async function POST(request: NextRequest) {
+  let body: CodeSuggestionRequest;
   try {
-    const body: CodeSuggestionRequest = await request.json();
+    body = await request.json();
+  } catch {
+    // Handle aborted or empty request bodies gracefully
+    return NextResponse.json(
+      { error: "Invalid JSON or empty request body" },
+      { status: 400 }
+    );
+  }
 
+  try {
     const { fileContent, cursorLine, cursorColumn, suggestionType, fileName } =
       body;
 

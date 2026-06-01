@@ -20,7 +20,7 @@ interface PlaygroundItem {
 
 interface PlaygroundsClientProps {
   initialPlaygrounds: PlaygroundItem[];
-  onDeleteAction: (id: string) => Promise<any>;
+  onDeleteAction: (id: string) => Promise<unknown>;
 }
 
 export default function PlaygroundsClient({ 
@@ -49,7 +49,7 @@ export default function PlaygroundsClient({
         await onDeleteAction(id);
         toast.success("Playground deleted successfully");
         router.refresh();
-      } catch (err) {
+      } catch {
         toast.error("Failed to delete playground");
       }
     });

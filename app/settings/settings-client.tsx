@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { User, Shield, Sparkles, Terminal, AppWindow, Github, Chrome, Key } from "lucide-react";
+import { Shield, Sparkles, Terminal, AppWindow, Github, Chrome, Key } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 

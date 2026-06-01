@@ -3,6 +3,7 @@ import Google from "next-auth/providers/google"
 import type { NextAuthConfig } from "next-auth"
 
 export default{
+    secret: process.env.AUTH_SECRET || "temp-secret-key-used-only-for-static-nextjs-build-phase",
     providers:[
         GitHub({
             clientId:process.env.AUTH_GITHUB_ID,

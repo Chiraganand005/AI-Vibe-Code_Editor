@@ -203,15 +203,16 @@ async function generateSuggestion(prompt: string): Promise<string> {
         model: "codellama:latest",
         prompt,
         stream: false,
-        option: {
+        options: {
           temperature: 0.7,
-          max_tokens: 300,
+          num_predict: 300,
         },
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`AI service error: ${response.statusText}`);
+      const errorText = await response.text();
+      throw new Error(`AI service error: ${response.statusText} - ${errorText}`);
     }
 
     const data = await response.json();

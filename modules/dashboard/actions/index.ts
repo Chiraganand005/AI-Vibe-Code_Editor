@@ -45,17 +45,21 @@ export const toggleStarMarked = async (
 
 export const getAllPlaygroundForUser = async () => {
   const user = await currentUser();
+  if (!user || !user.id) {
+    console.warn("Unauthenticated attempt to get playgrounds.");
+    return [];
+  }
 
   try {
     const playground = await db.playground.findMany({
       where: {
-        userId: user?.id,
+        userId: user.id,
       },
       include: {
         user: true,
         Starmark:{
             where:{
-                userId:user?.id!
+                userId: user.id
             },
             select:{
                 isMarked:true
@@ -67,6 +71,7 @@ export const getAllPlaygroundForUser = async () => {
     return playground;
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
 
@@ -76,6 +81,9 @@ export const createPlayground = async (data: {
   description?: string;
 }) => {
   const user = await currentUser();
+  if (!user || !user.id) {
+    throw new Error("Unauthorized: Must be logged in to create a playground");
+  }
 
   const { template, title, description } = data;
 
@@ -85,7 +93,7 @@ export const createPlayground = async (data: {
         title: title,
         description: description,
         template: template,
-        userId: user?.id!,
+        userId: user.id,
       },
     });
 

@@ -11,6 +11,64 @@ interface ChatRequest {
 }
 
 async function generateAIResponse(messages: ChatMessage[]): Promise<string> {
+  const geminiKey = process.env.GEMINI_API_KEY;
+
+  if (geminiKey) {
+    const systemPrompt = `You are a helpful AI coding assistant. You help developers with:
+- Code explanations and debugging
+- Best practices and architecture advice  
+- Writing clean, efficient code
+- Troubleshooting errors
+- Code reviews and optimizations
+
+Always provide clear, practical answers. Use proper code formatting when showing examples.`;
+
+    const contents = messages.map((msg) => ({
+      role: msg.role === "assistant" ? "model" : "user",
+      parts: [{ text: msg.content }],
+    }));
+
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents,
+            systemInstruction: {
+              parts: [{ text: systemPrompt }],
+            },
+            generationConfig: {
+              temperature: 0.7,
+              maxOutputTokens: 1000,
+            },
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Gemini service error: ${response.statusText} - ${errorText}`);
+      }
+
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!text) {
+        throw new Error("No response from Gemini model");
+      }
+
+      return text.trim();
+    } catch (error) {
+      console.error("Gemini generation error:", error);
+      throw new Error("Failed to generate AI response");
+    }
+  }
+
+  // Fallback to Ollama
   const systemPrompt = `You are a helpful AI coding assistant. You help developers with:
 - Code explanations and debugging
 - Best practices and architecture advice  

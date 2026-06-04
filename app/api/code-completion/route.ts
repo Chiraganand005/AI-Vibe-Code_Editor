@@ -148,6 +148,53 @@ Generate suggestion:`;
 }
 
 async function generateSuggestion(prompt: string): Promise<string> {
+  const geminiKey = process.env.GEMINI_API_KEY;
+
+  if (geminiKey) {
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [{ text: prompt }],
+              },
+            ],
+            generationConfig: {
+              temperature: 0.2,
+              maxOutputTokens: 300,
+            },
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Gemini service error: ${response.statusText} - ${errorText}`);
+      }
+
+      const data = await response.json();
+      let suggestion = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+      // Clean up the suggestion
+      if (suggestion.includes("```")) {
+        const codeMatch = suggestion.match(/```[\w]*\n?([\s\S]*?)```/);
+        suggestion = codeMatch ? codeMatch[1].trim() : suggestion;
+      }
+
+      return suggestion;
+    } catch (error) {
+      console.error("Gemini completion error:", error);
+      return "// AI suggestion unavailable";
+    }
+  }
+
+  // Fallback to Ollama
   try {
     const response = await fetch("http://localhost:11434/api/generate", {
       method: "POST",
@@ -163,23 +210,23 @@ async function generateSuggestion(prompt: string): Promise<string> {
       }),
     });
 
-       if (!response.ok) {
-      throw new Error(`AI service error: ${response.statusText}`)
+    if (!response.ok) {
+      throw new Error(`AI service error: ${response.statusText}`);
     }
 
-      const data = await response.json()
-    let suggestion = data.response
+    const data = await response.json();
+    let suggestion = data.response;
 
-     // Clean up the suggestion
+    // Clean up the suggestion
     if (suggestion.includes("```")) {
-      const codeMatch = suggestion.match(/```[\w]*\n?([\s\S]*?)```/)
-      suggestion = codeMatch ? codeMatch[1].trim() : suggestion
+      const codeMatch = suggestion.match(/```[\w]*\n?([\s\S]*?)```/);
+      suggestion = codeMatch ? codeMatch[1].trim() : suggestion;
     }
 
-    return suggestion
+    return suggestion;
   } catch (error) {
-      console.error("AI generation error:", error)
-    return "// AI suggestion unavailable"
+    console.error("AI generation error:", error);
+    return "// AI suggestion unavailable";
   }
 }
 
